@@ -6,4 +6,4 @@ for file in ~/.bashrc.d/*; do
 done
 
 EDITOR=/usr/bin/vim
-PATH="~/bin:$PATH:~/.local/bin"
+PATH="~/.local/bin:~/bin:$PATH"
