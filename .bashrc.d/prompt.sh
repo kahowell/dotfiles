@@ -23,7 +23,7 @@ else
   dirchar=" ${doublewidth}📂"
 fi
 function calculate_prompt() {
-  gitbranch=$(git symbolic-ref -q --short HEAD 2> /dev/null)
+  gitbranch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
   if [ $? -gt 0 ]; then
     unset gitbranch
   else
