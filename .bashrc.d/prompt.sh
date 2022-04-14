@@ -1,3 +1,7 @@
+if command -v starship >/dev/null; then
+  eval "$(starship init bash)"
+  return
+fi
 use_emoticons=false
 bold="\[$(tput bold)\]"
 reset="\[$(tput sgr0)\]"
@@ -22,7 +26,16 @@ else
   hostchar=" ${doublewidth}💻"
   dirchar=" ${doublewidth}📂"
 fi
-function calculate_prompt() {
+function get_path() {
+  if [ "$(realpath $PWD)" = "$(realpath $HOME)" ]; then
+    echo '~'
+  elif [[ "$(realpath $PWD)" == "$(realpath $HOME)"/* ]]; then
+    echo "~/$(realpath --relative-to=$HOME $PWD)"
+  else
+    echo $PWD
+  fi
+}
+function _prompt_hook() {
   gitbranch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
   if [ $? -gt 0 ]; then
     unset gitbranch
@@ -34,6 +47,9 @@ function calculate_prompt() {
     echo $gitbranch | egrep '\~[0-9]+$' > /dev/null && gitbranch=$(git rev-parse --short HEAD)
     gitbranch="${reset}${branchchar}${bold}${darkblue}${gitbranch}"
   fi
-  export PS1="${userchar}${bold}${blue}\u${reset}${hostchar}${bold}${green}\h${reset}${dirchar}${bold}${yellow}\w${gitbranch}${reset}${bold}${promptchar}${reset} "
+  path=$(get_path)
+  export PS1="${userchar}${bold}${blue}\u${reset}${hostchar}${bold}${green}\h${reset}${dirchar}${bold}${yellow}${path}${gitbranch}${reset}${bold}${promptchar}${reset} "
 }
-export PROMPT_COMMAND=calculate_prompt
+if ! [[ "${PROMPT_COMMAND:-}" =~ _prompt_hook ]]; then
+  PROMPT_COMMAND="_prompt_hook${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
+fi
