@@ -1,3 +1,5 @@
+format = "$all$kubernetes$line_break$character"
+
 [username]
 show_always = true
 format = "[$user]($style)@"
@@ -5,3 +7,8 @@ format = "[$user]($style)@"
 [hostname]
 ssh_only = false
 format = "[$hostname]($style):"
+
+[kubernetes]
+disabled = false
+symbol = "⛵"
+format = '[(\($symbol$namespace\))]($style)'
