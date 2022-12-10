@@ -1,0 +1,16 @@
+:filetype on
+:syntax enable
+set autoindent
+set autoread
+set backspace=indent,eol,start
+set display=lastline,uhex
+set encoding=utf-8
+set expandtab
+set incsearch
+set laststatus=2
+set mouse=a
+set ruler
+set shiftwidth=2
+set smarttab
+set tabstop=2
+set wildmenu
