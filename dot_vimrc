@@ -8,7 +8,7 @@ set encoding=utf-8
 set expandtab
 set incsearch
 set laststatus=2
-set mouse=a
+set mouse=vih
 set ruler
 set shiftwidth=2
 set smarttab
