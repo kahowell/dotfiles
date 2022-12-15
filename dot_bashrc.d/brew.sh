@@ -11,6 +11,7 @@ helm
 k3d
 k9s
 kind
+kube-linter
 kubectl
 minikube
 oc
