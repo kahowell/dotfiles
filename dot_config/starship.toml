@@ -12,3 +12,9 @@ format = "[$hostname]($style):"
 disabled = false
 symbol = "⛵"
 format = '[(\($symbol$namespace\))]($style)'
+
+[docker_context]
+disabled = true
+
+[nodejs]
+disabled = true
