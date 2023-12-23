@@ -1,0 +1,14 @@
+#!/bin/bash
+case $@ in
+  "-y") CONFIRM_ARG=-y ;;
+  "") CONFIRM_ARG='' ;;
+  *) echo "Usage: $0 [-y]"; exit 1 ;;
+esac
+echo 📦Updating dnf packages
+sudo dnf update $CONFIRM_ARG
+echo 📦Updating brew packages
+brew update && brew upgrade && brew cleanup
+echo 📦Updating flatpaks
+flatpak upgrade $CONFIRM_ARG && flatpak uninstall --unused $CONFIRM_ARG
+echo 📦Updating firmware
+fwupdmgr update $CONFIRM_ARG
