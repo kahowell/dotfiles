@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+if [ $# -lt 1 ]; then
+  echo "Usage: wake [$(cat ~/.wol.yaml | yq 'keys() | join("|")')]"
+  exit 0
+fi
+mac=$(cat ~/.wol.yaml | yq --exit-status ".$1")
+wol $mac
