@@ -1,0 +1,4 @@
+{{ $versions := (fromYaml (include "versions.yaml")) -}}
+["bin/bundletool.jar"]
+    type = "file"
+    url = "https://github.com/google/bundletool/releases/download/{{ $versions.bundletool }}/bundletool-all-{{ $versions.bundletool }}.jar"

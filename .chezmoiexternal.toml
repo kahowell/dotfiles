@@ -1,4 +1,0 @@
-{{ $bundletoolVersion := "1.15.6" -}}
-["bin/bundletool.jar"]
-    type = "file"
-    url = "https://github.com/google/bundletool/releases/download/{{ $bundletoolVersion }}/bundletool-all-{{ $bundletoolVersion }}.jar"
