@@ -1,2 +1,2 @@
-# https://github.com/google/bundletool
+# renovate: datasource=github-releases depName=google/bundletool
 bundletool: "1.15.6"
