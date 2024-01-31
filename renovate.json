@@ -8,7 +8,7 @@
       "customType": "regex",
       "fileMatch": ["^versions.yaml$"],
       "matchStrings": [
-        "#\\s?renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)\\s?[\\w+_]*:\\s?[\"']?(?<currentValue>[\w+\.\-]*)[\"']"
+        "#\\s?renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)\\s?[\\w_]*:\\s?[\"']?(?<currentValue>[\\w+\\.\\-]*)[\"']"
       ]
     }
   ]
