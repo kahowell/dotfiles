@@ -2,3 +2,7 @@
 ["bin/bundletool.jar"]
     type = "file"
     url = "https://github.com/google/bundletool/releases/download/{{ $versions.bundletool }}/bundletool-all-{{ $versions.bundletool }}.jar"
+["bin/ollama"]
+    type = "file"
+    executable = true
+    url = "https://github.com/ollama/ollama/releases/download/{{ $versions.ollama }}/ollama-linux-amd64"
