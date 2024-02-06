@@ -4,6 +4,8 @@ case $@ in
   "") CONFIRM_ARG='' ;;
   *) echo "Usage: $0 [-y]"; exit 1 ;;
 esac
+echo 📦Updating dotfiles
+chezmoi update
 echo 📦Updating dnf packages
 sudo dnf update $CONFIRM_ARG
 echo 📦Updating brew packages
