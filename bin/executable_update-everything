@@ -14,3 +14,5 @@ echo 📦Updating flatpaks
 flatpak upgrade $CONFIRM_ARG && flatpak uninstall --unused $CONFIRM_ARG
 echo 📦Updating firmware
 fwupdmgr update $CONFIRM_ARG
+echo 📦Updating python-based tools
+(cd ~/python-tools; poetry install --sync --no-root)
