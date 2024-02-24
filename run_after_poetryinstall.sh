@@ -1,3 +1,3 @@
 #!/bin/bash
-cd ~/python-tools
+cd ~/tools/python
 poetry install --no-root --sync
