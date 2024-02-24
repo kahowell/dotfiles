@@ -1,0 +1,3 @@
+[submodule "dot_ansible/roles/kahowell-laptop"]
+	path = dot_ansible/roles/kahowell-laptop
+	url = https://github.com/kahowell/ansible-kahowell
