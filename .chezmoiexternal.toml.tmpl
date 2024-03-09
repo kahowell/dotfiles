@@ -6,3 +6,8 @@
     type = "file"
     executable = true
     url = "https://github.com/ollama/ollama/releases/download/{{ $versions.ollama }}/ollama-linux-amd64"
+["tools/quarto"]
+    type = "archive"
+    url = "https://github.com/quarto-dev/quarto-cli/releases/download/{{ $versions.quarto }}/quarto-{{ trimAll "v" $versions.quarto }}-linux-amd64.tar.gz"
+    exact = true
+    stripComponents = 1
