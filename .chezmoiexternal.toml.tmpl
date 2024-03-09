@@ -11,3 +11,8 @@
     url = "https://github.com/quarto-dev/quarto-cli/releases/download/{{ $versions.quarto }}/quarto-{{ trimAll "v" $versions.quarto }}-linux-amd64.tar.gz"
     exact = true
     stripComponents = 1
+["bin"]
+    type = "archive"
+    url = "https://developers.redhat.com/content-gateway/file/pub/openshift-v4/clients/crc/{{ regexFind "[0-9.]+" $versions.crc }}/crc-linux-amd64.tar.xz"
+    stripComponents = 1
+    include = ["*/crc"]
