@@ -530,13 +530,13 @@ min-versions = ["babel (==2.9.0)", "click (==7.0)", "colorama (==0.4)", "ghp-imp
 
 [[package]]
 name = "mkdocs-material"
-version = "9.4.14"
+version = "9.5.13"
 description = "Documentation that simply works"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mkdocs_material-9.4.14-py3-none-any.whl", hash = "sha256:dbc78a4fea97b74319a6aa9a2f0be575a6028be6958f813ba367188f7b8428f6"},
-    {file = "mkdocs_material-9.4.14.tar.gz", hash = "sha256:a511d3ff48fa8718b033e7e37d17abd9cc1de0fdf0244a625ca2ae2387e2416d"},
+    {file = "mkdocs_material-9.5.13-py3-none-any.whl", hash = "sha256:5cbe17fee4e3b4980c8420a04cc762d8dc052ef1e10532abd4fce88e5ea9ce6a"},
+    {file = "mkdocs_material-9.5.13.tar.gz", hash = "sha256:d8e4caae576312a88fd2609b81cf43d233cdbe36860d67a68702b018b425bd87"},
 ]
 
 [package.dependencies]
@@ -544,7 +544,7 @@ babel = ">=2.10,<3.0"
 colorama = ">=0.4,<1.0"
 jinja2 = ">=3.0,<4.0"
 markdown = ">=3.2,<4.0"
-mkdocs = ">=1.5.3,<2.0"
+mkdocs = ">=1.5.3,<1.6.0"
 mkdocs-material-extensions = ">=1.3,<2.0"
 paginate = ">=0.5,<1.0"
 pygments = ">=2.16,<3.0"
@@ -553,8 +553,8 @@ regex = ">=2022.4"
 requests = ">=2.26,<3.0"
 
 [package.extras]
-git = ["mkdocs-git-committers-plugin-2 (>=1.1,<2.0)", "mkdocs-git-revision-date-localized-plugin (>=1.2,<2.0)"]
-imaging = ["cairosvg (>=2.6,<3.0)", "pillow (>=9.4,<10.0)"]
+git = ["mkdocs-git-committers-plugin-2 (>=1.1,<2.0)", "mkdocs-git-revision-date-localized-plugin (>=1.2.4,<2.0)"]
+imaging = ["cairosvg (>=2.6,<3.0)", "pillow (>=10.2,<11.0)"]
 recommended = ["mkdocs-minify-plugin (>=0.7,<1.0)", "mkdocs-redirects (>=1.2,<2.0)", "mkdocs-rss-plugin (>=1.6,<2.0)"]
 
 [[package]]
@@ -585,13 +585,13 @@ python-slugify = ">=4.0.1"
 
 [[package]]
 name = "mkdocs-techdocs-core"
-version = "1.3.4"
+version = "1.3.5"
 description = "The core MkDocs plugin used by Backstage's TechDocs as a wrapper around multiple MkDocs plugins and Python Markdown extensions"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "mkdocs-techdocs-core-1.3.4.tar.gz", hash = "sha256:870e863e41280e81b88f00c92345610a76daddbe3785dda7b09c0bdd3dc16aa9"},
-    {file = "mkdocs_techdocs_core-1.3.4-py3-none-any.whl", hash = "sha256:f48f855cfc981d3c7010c370e829870e09f74427f8c6400255232983d59249fd"},
+    {file = "mkdocs-techdocs-core-1.3.5.tar.gz", hash = "sha256:bab6914ad9d8dce250d7287e673d631f3904c9e172896fca21450da6aed8ac67"},
+    {file = "mkdocs_techdocs_core-1.3.5-py3-none-any.whl", hash = "sha256:f4b5aaab7e5d15e3f15f7bad5bea5a60c790440f053240855a7b4a6d9802e1fa"},
 ]
 
 [package.dependencies]
@@ -599,7 +599,7 @@ Markdown = ">=3.2,<3.4"
 markdown-inline-graphviz-extension = "1.1.2"
 mdx-truly-sane-lists = "1.3"
 mkdocs = ">=1.5"
-mkdocs-material = "9.4.14"
+mkdocs-material = "9.5.13"
 mkdocs-monorepo-plugin = "1.1.0"
 plantuml-markdown = "3.9.2"
 pygments = "2.17.2"
