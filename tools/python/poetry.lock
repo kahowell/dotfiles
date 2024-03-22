@@ -209,13 +209,13 @@ files = [
 
 [[package]]
 name = "crc-bonfire"
-version = "5.6.0"
+version = "5.7.1"
 description = "A CLI tool used to deploy ephemeral environments for testing cloud.redhat.com applications"
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "crc-bonfire-5.6.0.tar.gz", hash = "sha256:2a799f2181940e9a118131d94beb4909b86de41edb6fbb53fb7e8bb01b47c8a7"},
-    {file = "crc_bonfire-5.6.0-py3-none-any.whl", hash = "sha256:8ff67ba5399c0c7ee6a3ac05f8e05336e043df4da6e8e1c855583c27e24a66ee"},
+    {file = "crc-bonfire-5.7.1.tar.gz", hash = "sha256:8796e12daa22f436ecb015d878462e0a91a7d793c8b547d1764ac0e8a000f523"},
+    {file = "crc_bonfire-5.7.1-py3-none-any.whl", hash = "sha256:bd2d1e756660b113ee1de04d6765470eb171a11ece01d45e538fe5e599857eb2"},
 ]
 
 [package.dependencies]
