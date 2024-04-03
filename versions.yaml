@@ -5,4 +5,4 @@ crc: "2.33.0-4.14.12"
 # renovate: datasource=github-releases depName=ollama/ollama
 ollama: "v0.1.28"
 # renovate: datasource=github-releases depName=quarto-dev/quarto-cli
-quarto: "v1.4.551"
+quarto: "v1.4.553"
