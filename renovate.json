@@ -11,5 +11,11 @@
         "#\\s?renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)\\s?[\\w_]*:\\s?[\"']?(?<currentValue>[\\w+\\.\\-]*)[\"']"
       ]
     }
+  ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["*"],
+      "automerge": true
+    }
   ]
 }
