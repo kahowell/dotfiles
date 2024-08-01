@@ -4,7 +4,7 @@ rpm -qa | sort
 echo
 
 echo 📦Brew packages
-brew list --versions | sort
+/home/linuxbrew/.linuxbrew/bin/brew list --versions | sort
 echo
 
 echo 📦Flatpaks
