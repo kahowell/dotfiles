@@ -1,0 +1,17 @@
+#!/bin/bash
+echo 📦RPMs
+rpm -qa | sort
+echo
+
+echo 📦Brew packages
+brew list --versions | sort
+echo
+
+echo 📦Flatpaks
+flatpak list -a --columns=ref,version | sort
+echo
+
+if [ -f /usr/local/bin/versions.yaml ]; then
+  echo 📦Misc
+  cat /usr/local/bin/versions.yaml
+fi
