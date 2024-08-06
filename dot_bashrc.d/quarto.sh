@@ -1,2 +1,2 @@
 #!/bin/bash
-export PATH=$PATH:$HOME/tools/quarto/bin
+export PATH=$PATH:/opt/quarto/bin
