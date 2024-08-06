@@ -5,7 +5,7 @@ case $@ in
   *) echo "Usage: $0 [-y]"; exit 1 ;;
 esac
 echo 📦Updating Ansible role
-sudo ansible-pull -o -U https://github.com/kahowell/kahowell-environment -K -d /etc/ansible/roles/kahowell-environment /etc/ansible/roles/kahowell-environment/provision.yml
+sudo ansible-pull -o -U https://github.com/kahowell/kahowell-environment -d /etc/ansible/roles/kahowell-environment /etc/ansible/roles/kahowell-environment/provision.yml
 echo 📦Updating dotfiles
 chezmoi update
 echo 📦Updating dnf packages
