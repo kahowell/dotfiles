@@ -4,12 +4,19 @@ rpm -qa | sort
 echo
 
 echo 📦Brew packages
-/home/linuxbrew/.linuxbrew/bin/brew list --versions | sort
+/home/linuxbrew/.linuxbrew/bin/brew list --versions 2>/dev/null | sort
 echo
 
 echo 📦Flatpaks
 flatpak list -a --columns=ref,version | sort
 echo
+
+echo 📦pipx packages
+pipx list --global
+echo
+
+echo 📦npm packages
+npm list -g
 
 if [ -f /usr/local/bin/versions.yaml ]; then
   echo 📦Misc
