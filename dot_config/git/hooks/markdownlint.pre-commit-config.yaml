@@ -1,0 +1,8 @@
+repos:
+- repo: local
+  hooks:
+  - id: markdownlint
+    name: markdownlint
+    language: system
+    entry: markdownlint-cli2
+    types: [markdown]

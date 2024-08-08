@@ -1,0 +1,9 @@
+repos:
+- repo: local
+  hooks:
+  - id: yamllint
+    name: yamllint
+    language: system
+    # -s errors on warnings
+    entry: yamllint -s
+    types: [file, yaml]

@@ -1,0 +1,7 @@
+repos:
+- repo: local
+  hooks:
+  - id: gitleaks
+    name: gitleaks
+    language: system
+    entry: gitleaks protect --verbose --redact --staged

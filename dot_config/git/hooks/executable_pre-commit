@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+for i in $HOME/.config/git/hooks/*.pre-commit-config.yaml; do
+  pre-commit run --config=$i
+done
+if [[ -f .pre-commit-config.yaml && ! -f  .git/hooks/pre-commit ]]; then
+  echo pre-commit hooks not enabled, enable via:
+  echo "   GIT_CONFIG=/dev/null pre-commit install"
+  exit 1
+fi
+if [ -f .git/hooks/pre-commit ]; then
+  .git/hooks/pre-commit
+fi
