@@ -17,4 +17,6 @@ flatpak upgrade $CONFIRM_ARG && flatpak uninstall --unused $CONFIRM_ARG
 echo 📦Updating firmware
 fwupdmgr update $CONFIRM_ARG
 echo 📦Updating python-based tools
-(cd ~/python-tools; poetry install --sync --no-root)
+sudo pipx --global upgrade-all
+echo 📦Updating node-based tools
+sudo npm update -g
