@@ -8,6 +8,6 @@ if [[ -f .pre-commit-config.yaml && ! -f  .git/hooks/pre-commit ]]; then
   echo "   GIT_CONFIG=/dev/null pre-commit install"
   exit 1
 fi
-if [ -f .git/hooks/pre-commit ]; then
+if [ -x .git/hooks/pre-commit ]; then
   .git/hooks/pre-commit
 fi
