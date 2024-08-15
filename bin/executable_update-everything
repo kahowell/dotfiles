@@ -19,4 +19,4 @@ fwupdmgr update $CONFIRM_ARG
 echo 📦Updating python-based tools
 sudo pipx --global upgrade-all
 echo 📦Updating node-based tools
-sudo npm update -g
+sudo npm update -g $(npm list -g --json | jq -r '.dependencies | keys | .[]')
