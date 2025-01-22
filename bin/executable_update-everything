@@ -11,7 +11,7 @@ chezmoi update
 echo 📦Updating dnf packages
 sudo dnf update $CONFIRM_ARG
 echo 📦Updating brew packages
-sudo -u linuxbrew bash -c "/home/linuxbrew/.linuxbrew/bin/brew update && /home/linuxbrew/.linuxbrew/bin/brew upgrade && /home/linuxbrew/.linuxbrew/bin/brew cleanup"
+sudo -u linuxbrew bash -c "cd /home/linuxbrew && /home/linuxbrew/.linuxbrew/bin/brew update && /home/linuxbrew/.linuxbrew/bin/brew upgrade && /home/linuxbrew/.linuxbrew/bin/brew cleanup"
 echo 📦Updating flatpaks
 flatpak upgrade $CONFIRM_ARG && flatpak uninstall --unused $CONFIRM_ARG
 echo 📦Updating firmware
