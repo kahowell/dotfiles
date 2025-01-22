@@ -15,7 +15,7 @@ sudo -u linuxbrew bash -c "cd /home/linuxbrew && /home/linuxbrew/.linuxbrew/bin/
 echo 📦Updating flatpaks
 flatpak upgrade $CONFIRM_ARG && flatpak uninstall --unused $CONFIRM_ARG
 echo 📦Updating firmware
-fwupdmgr update $CONFIRM_ARG
+fwupdmgr get-updates $CONFIRM_ARG && fwupdmgr update $CONFIRM_ARG
 echo 📦Updating python-based tools
 sudo pipx --global upgrade-all
 echo 📦Updating node-based tools
