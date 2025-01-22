@@ -1,0 +1,5 @@
+#!/bin/bash
+PIPX_HOME=/opt/pipx \
+  PIPX_BIN_DIR=/usr/local/bin \
+  PIPX_MAN_DIR=/usr/local/share/man \
+  sudo -E pipx --global reinstall-all
