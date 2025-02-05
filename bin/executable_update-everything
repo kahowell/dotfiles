@@ -4,8 +4,12 @@ case $@ in
   "") CONFIRM_ARG='' ;;
   *) echo "Usage: $0 [-y]"; exit 1 ;;
 esac
-echo 📦Updating Ansible role
-sudo ansible-pull -o -U https://github.com/kahowell/kahowell-environment -d /etc/ansible/roles/kahowell-environment /etc/ansible/roles/kahowell-environment/provision.yml
+for role_git_dir in $(find /etc/ansible/roles -maxdepth 2 -name .git); do
+  role=$(dirname $role_git_dir)
+  git_repo=$(cd $role; git -c safe.directory=* remote get-url origin)
+  echo 📦Updating Ansible role $(basename $role)
+  sudo ansible-pull -o -U $git_repo -d $role $role/provision.yml
+done
 echo 📦Updating dotfiles
 chezmoi update
 echo 📦Updating dnf packages
