@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 case $@ in
   "-y") CONFIRM_ARG=-y ;;
   "") CONFIRM_ARG='' ;;
