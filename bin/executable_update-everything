@@ -21,6 +21,9 @@ flatpak upgrade $CONFIRM_ARG && flatpak uninstall --unused $CONFIRM_ARG
 echo 📦Updating firmware
 fwupdmgr get-updates $CONFIRM_ARG && fwupdmgr update $CONFIRM_ARG
 echo 📦Updating python-based tools
-sudo pipx --global upgrade-all
+sudo PIPX_HOME=/opt/pipx \
+  PIPX_BIN_DIR=/usr/local/bin \
+  PIPX_MAN_DIR=/usr/local/share/man \
+  pipx upgrade-all
 echo 📦Updating node-based tools
 sudo npm update -g $(npm list -g --json | jq -r '.dependencies | keys | .[]')
