@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Git prepare-commit-msg hook
+# Drafts a commit message using claude, when one is not provided
+
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+SHA1=$3
+
+# Read the commit message, filtering out comments (lines starting with #)
+commit_msg=$(grep -v '^#' "$COMMIT_MSG_FILE" | sed '/^$/d')
+original_contents=$(cat $COMMIT_MSG_FILE)
+
+# Check if the commit message is empty after removing comments and blank lines
+if [ -z "$commit_msg" ]; then
+    echo "Empty commit message detected. Drafting commit using claude..."
+
+    git diff --staged | claude -p "$(cat ~/.config/git/commit-prompt.txt)" > "$COMMIT_MSG_FILE"
+    echo "$original_contents" >> "$COMMIT_MSG_FILE"
+fi
