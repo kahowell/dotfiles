@@ -5,7 +5,7 @@ if [[ -f /home/linuxbrew/.linuxbrew/bin/brew && $PATH != *".linuxbrew"* ]]; then
     # NOTE: unlike "idiomatic brew" I prefer system binaries when possible
     export PATH=$OLDPATH:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin
 fi
-
+if [ ! -f /etc/profile.d/brew-bash-completion.sh ]; then
 COMPLETIONS="
 argocd
 brew
@@ -27,3 +27,4 @@ for file in $COMPLETIONS; do
     source /home/linuxbrew/.linuxbrew/etc/bash_completion.d/$file
   fi
 done
+fi
