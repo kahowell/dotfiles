@@ -5,6 +5,8 @@
 	editor = vim
 	hooksPath = ~/.config/git/hooks
 [diff]
-	tool = meld
+	tool = meld_flatpak
+[difftool "meld_flatpak"]
+  cmd = flatpak run \"--filesystem=$(realpath \"$LOCAL\")\" \"--filesystem=$(realpath \"$REMOTE\")\" org.gnome.meld \"$LOCAL\" \"$REMOTE\"
 [init]
 	defaultBranch = main
