@@ -4,9 +4,15 @@
 [core]
 	editor = vim
 	hooksPath = ~/.config/git/hooks
-[diff]
-	tool = meld_flatpak
-[difftool "meld_flatpak"]
-  cmd = flatpak run \"--filesystem=$(realpath \"$LOCAL\")\" \"--filesystem=$(realpath \"$REMOTE\")\" org.gnome.meld \"$LOCAL\" \"$REMOTE\"
 [init]
 	defaultBranch = main
+[diff]
+	tool = meld_flatpak
+[merge]
+	tool = meld_flatpak
+[difftool "meld_flatpak"]
+  cmd = flatpak run --filesystem=/tmp org.gnome.meld $LOCAL $REMOTE
+[mergetool "meld_flatpak"]
+  cmd = flatpak run --filesystem=/tmp org.gnome.meld $LOCAL $BASE $REMOTE -o $MERGED --auto-merge
+[mergetool]
+	keepBackup = false
