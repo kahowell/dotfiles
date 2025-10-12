@@ -1,2 +1,0 @@
-#!/bin/bash
-podman images --format "{{.Repository}}:{{.Tag}}" --filter dangling=false | grep -v '<none>' | xargs podman pull
