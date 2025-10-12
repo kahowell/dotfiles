@@ -1,3 +1,3 @@
-if [ -f /usr/bin/direnv ]; then
+if [ -f $HOMEBREW_PREFIX/bin/direnv ]; then
   eval "$(direnv hook bash)"
 fi
