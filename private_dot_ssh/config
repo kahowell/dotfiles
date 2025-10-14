@@ -1,0 +1,6 @@
+Include config.d/*.config
+
+Host *
+    ControlPath ~/.ssh/controlmasters/%r@%h:%p
+    ControlMaster auto
+    ControlPersist 10m
