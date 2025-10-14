@@ -1,7 +1,5 @@
 # .bashrc
 
-# workaround for universal blue bug https://universal-blue.discourse.group/t/bash-task-command-not-found-error/4283
-if [ -f /etc/profile.d/brew.sh ]; then . /etc/profile.d/brew.sh; fi
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
