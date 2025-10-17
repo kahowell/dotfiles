@@ -1,0 +1,2 @@
+[misc]
+disable = ["pipx", "pip3", "pnpm", "yarn", "node", "vim"]

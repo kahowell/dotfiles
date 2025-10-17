@@ -1,0 +1,17 @@
+#!/bin/bash
+for role_git_dir in $(find /etc/ansible/roles -maxdepth 2 -name .git); do
+  role=$(dirname $role_git_dir)
+  git_repo=$(cd $role; git -c safe.directory=* remote get-url origin)
+  if [ -f $role/provision.yml ]; then
+    echo 📦Updating Ansible role $(basename $role)
+    sudo ansible-pull -o -U $git_repo -d $role $role/provision.yml
+  fi
+done
+for role_git_dir in $(find ~/.ansible/roles -maxdepth 2 -name .git); do
+  role=$(dirname $role_git_dir)
+  git_repo=$(cd $role; git -c safe.directory=* remote get-url origin)
+  if [ -f $role/provision.yml ]; then
+    echo 📦Updating Ansible role $(basename $role)
+    ansible-pull -o -U $git_repo -d $role $role/provision.yml
+  fi
+done

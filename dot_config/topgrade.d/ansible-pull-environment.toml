@@ -1,0 +1,2 @@
+[commands]
+"Ansible Pull Environment" = "~/bin/ansible-pull-environment"
