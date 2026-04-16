@@ -1,4 +1,5 @@
 format = "$all$kubernetes$line_break$character"
+#format="$username$hostname$character"
 
 [username]
 show_always = true

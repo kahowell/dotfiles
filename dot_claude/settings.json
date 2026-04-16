@@ -3,5 +3,7 @@
     "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
     "DISABLE_AUTOUPDATER": "1"
   },
-  "alwaysThinkingEnabled": false
+  "model": "claude-opus-4-6",
+  "alwaysThinkingEnabled": false,
+  "autoMemoryEnabled": false
 }
