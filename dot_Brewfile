@@ -12,6 +12,7 @@ brew "innoextract"
 brew "pandoc"
 brew "syncthing"
 brew "wakeonlan"
+brew "yt-dlp"
 
 # general dev tools
 brew "atuin"
