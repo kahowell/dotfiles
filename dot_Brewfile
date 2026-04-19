@@ -1,0 +1,127 @@
+if OS.linux? and OS::Linux.os_version.downcase.include? "bazzite"
+  tap "ublue-os/tap"
+  cask "ublue-os/tap/jetbrains-toolbox-linux"
+end
+
+# general tools
+brew "bitwarden-cli"
+brew "fd"
+brew "fzf"
+brew "git-delta"
+brew "innoextract"
+brew "pandoc"
+brew "syncthing"
+brew "wakeonlan"
+
+# general dev tools
+brew "atuin"
+brew "bash-preexec"
+brew "chezmoi"
+brew "direnv"
+brew "eza"
+brew "geckodriver"
+brew "gh"
+brew "gitleaks"
+brew "grpcurl"
+brew "grpcui"
+brew "httpie"
+brew "markdownlint-cli2"
+brew "mermaid-cli"
+brew "nmap"
+brew "nvm"
+brew "pnpm"
+brew "pre-commit"
+brew "protobuf"
+brew "qsv"
+brew "sops"
+brew "starship"
+brew "trufflehog"
+brew "vale"
+brew "yamllint"
+brew "yq"
+
+# devops/automation tools
+brew "ansible"
+brew "ansible-lint"
+brew "opentofu"
+
+# cli tools
+brew "asciinema"
+brew "bat"
+brew "ncdu"
+brew "qrencode"
+brew "rclone"
+brew "rich-cli"
+brew "ripgrep"
+brew "task"
+brew "tig"
+brew "zsh"
+
+# python tools
+brew "black"
+brew "poetry"
+brew "uv"
+
+# dotnet tools
+brew "dotnet"
+
+# golang tools
+brew "go"
+brew "golangci-lint"
+
+# node js tools
+brew "node"
+
+# rust tools
+brew "rustup"
+
+# k8s tools
+brew "argocd"
+brew "dive"
+brew "helm"
+brew "k3d"
+brew "k9s"
+brew "kind"
+brew "kube-linter"
+brew "kubebuilder"
+brew "kubelogin"
+brew "kustomize"
+brew "kwok"
+brew "metalbear-co/mirrord/mirrord"
+brew "minikube"
+brew "ocm"
+brew "openshift-cli"
+brew "operator-sdk"
+brew "rosa-cli"
+brew "stern"
+brew "telepresenceio/telepresence/telepresence-oss"
+
+# ai tools
+brew "mcp-toolbox"
+brew "ollama"
+brew "opencode"
+brew "repomix"
+brew "specify"
+cask "claude-code"
+
+if OS.linux?
+  # flatpaks
+  flatpak "com.discordapp.Discord"
+  flatpak "com.google.Chrome"
+  flatpak "com.obsproject.Studio"
+  flatpak "com.slack.Slack"
+  flatpak "com.spotify.Client"
+  flatpak "io.kinvolk.Headlamp"
+  flatpak "io.podman_desktop.PodmanDesktop"
+  flatpak "net.cozic.joplin_desktop"
+  flatpak "org.chromium.Chromium"
+  flatpak "org.gimp.GIMP"
+  flatpak "org.gnome.meld"
+  flatpak "org.inkscape.Inkscape"
+  flatpak "org.kde.okteta"
+  flatpak "org.kde.yakuake"
+  flatpak "org.mozilla.firefox"
+  flatpak "org.raspberrypi.rpi-imager"
+  flatpak "org.videolan.VLC"
+  flatpak "us.zoom.Zoom"
+end
