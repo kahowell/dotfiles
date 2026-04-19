@@ -1,8 +1,0 @@
-repos:
-- repo: local
-  hooks:
-  - id: woke
-    name: woke
-    language: system
-    entry: woke
-    args: [--exit-1-on-failure]
