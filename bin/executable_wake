@@ -5,4 +5,4 @@ if [ $# -lt 1 ]; then
   exit 0
 fi
 mac=$(cat ~/.wol.yaml | yq --exit-status ".$1")
-wol $mac
+wakeonlan $mac
