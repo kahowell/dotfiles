@@ -13,8 +13,8 @@ original_contents=$(cat $COMMIT_MSG_FILE)
 
 # Check if the commit message is empty after removing comments and blank lines
 if [ -z "$commit_msg" ]; then
-    echo "Empty commit message detected. Drafting commit using claude..."
+    echo "Empty commit message detected. Drafting commit using opencode..."
 
-    git diff --staged | claude -p "$(cat ~/.config/git/commit-prompt.txt)" > "$COMMIT_MSG_FILE"
+    git diff --staged | opencode run "$(cat ~/.config/git/commit-prompt.txt)" > "$COMMIT_MSG_FILE"
     echo "$original_contents" >> "$COMMIT_MSG_FILE"
 fi
