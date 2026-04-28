@@ -103,6 +103,7 @@ brew "ollama"
 brew "opencode"
 brew "ralph-orchestrator"
 brew "repomix"
+brew "skills"
 brew "specify"
 cask "claude-code"
 
