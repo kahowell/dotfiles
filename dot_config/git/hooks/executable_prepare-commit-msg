@@ -15,6 +15,6 @@ original_contents=$(cat $COMMIT_MSG_FILE)
 if [ -z "$commit_msg" ]; then
     echo "Empty commit message detected. Drafting commit using opencode..."
 
-    git diff --staged | opencode run "$(cat ~/.config/git/commit-prompt.txt)" > "$COMMIT_MSG_FILE"
+    git diff --staged | OPENCODE_CONFIG_CONTENT='{"agent":{"build":{"prompt":"{file:~/.config/git/commit-prompt.txt}"}},"permission":{"*":"deny","bash":"deny","read":"deny"}}' opencode run > "$COMMIT_MSG_FILE"
     echo "$original_contents" >> "$COMMIT_MSG_FILE"
 fi
