@@ -20,7 +20,7 @@ async function configureLocalInference(config) {
       const models = Object.fromEntries(
         result.data.map((model) => [
           model.id,
-          { name: model.id, reasoning: true },
+          enrichVariants({ name: model.id }),
         ]),
       );
       config.provider[server.name] = {
@@ -35,6 +35,39 @@ async function configureLocalInference(config) {
       // Server not running on this port, skip.
     }
   }
+}
+
+function enrichVariants(modelConfig) {
+  if (modelConfig.name.indexOf("Qwen3.") != -1) {
+    // Default variant
+    modelConfig.options = {
+      chat_template_kwargs: {
+        enable_thinking: true,
+      },
+      temperature: 1.0,
+    };
+    modelConfig["variants"] = {
+      Coding: {
+        chat_template_kwargs: {
+          enable_thinking: true,
+        },
+        temperature: 0.6,
+      },
+      "Non-Thinking": {
+        chat_template_kwargs: {
+          enable_thinking: false,
+        },
+        temperature: 0.7,
+      },
+      "Non-Thinking (Reasoning)": {
+        chat_template_kwargs: {
+          enable_thinking: false,
+        },
+        temperature: 1.0,
+      },
+    };
+  }
+  return modelConfig;
 }
 
 async function configureOpenAiBaseUrl(config) {
@@ -63,34 +96,7 @@ async function configureOpenAiBaseUrl(config) {
           name: model.id,
           reasoning: true,
         };
-        if (model.id.indexOf("Qwen3.") != -1) {
-          model_config["variants"] = {
-            thinking_general: {
-              chat_template_kwargs: {
-                enable_thinking: true,
-              },
-              temperature: 1.0,
-            },
-            thinking_coding: {
-              chat_template_kwargs: {
-                enable_thinking: true,
-              },
-              temperature: 0.6,
-            },
-            nonthinking_general: {
-              chat_template_kwargs: {
-                enable_thinking: false,
-              },
-              temperature: 0.7,
-            },
-            nonthinking_reasoning: {
-              chat_template_kwargs: {
-                enable_thinking: false,
-              },
-              temperature: 1.0,
-            },
-          };
-        }
+        enrichVariants(model_config);
         return [model.id, model_config];
       }),
   );
