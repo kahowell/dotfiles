@@ -28,6 +28,7 @@ async function configureLocalInference(config) {
         name: server.name,
         options: {
           baseURL: server.baseURL,
+          timeout: false,
         },
         models: models,
       };
@@ -45,6 +46,10 @@ function enrichVariants(modelConfig) {
         enable_thinking: true,
       },
       temperature: 1.0,
+    };
+    modelConfig.limit = {
+      context: 262144,
+      output: 65536,
     };
     modelConfig["variants"] = {
       Coding: {
