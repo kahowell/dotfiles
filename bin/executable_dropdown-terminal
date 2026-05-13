@@ -1,0 +1,42 @@
+#!/bin/bash
+PIDFILE="${XDG_RUNTIME_DIR}/dropdown-konsole.pid"
+KWIN="gdbus call --session --dest org.kde.KWin --object-path /Scripting --method org.kde.kwin.Scripting"
+PID=$(cat "$PIDFILE" 2>/dev/null)
+if [ -z "$PID" ] || ! kill -0 "$PID" 2>/dev/null; then
+    konsole --separate --hide-menubar &
+    echo $! > "$PIDFILE"
+    ACTION=setup
+else
+    ACTION=toggle
+fi
+if [ "$ACTION" = setup ]; then
+cat > ${XDG_RUNTIME_DIR}/dropdown-kwin.js << EOF
+var pid = $(cat "$PIDFILE");
+function applyDropdown(w) {
+    if (w.pid !== pid) return;
+    w.noBorder = true; w.skipTaskbar = true;
+    var c = workspace.cursorPos, ss = workspace.screens, g;
+    for (var j = 0; j < ss.length; j++) { g = ss[j].geometry; if (c.x >= g.x && c.x < g.x + g.width) break; }
+    w.minimized = false; w.keepAbove = true;
+    w.frameGeometry = {x:g.x,y:g.y,width:g.width,height:Math.floor(g.height/2)};
+    workspace.activeWindow = w;
+}
+workspace.windowAdded.connect(applyDropdown);
+var wins = workspace.windowList();
+for (var i = 0; i < wins.length; i++) { applyDropdown(wins[i]); }
+EOF
+else
+cat > ${XDG_RUNTIME_DIR}/dropdown-kwin.js << EOF
+var wins = workspace.windowList();
+for (var i = 0; i < wins.length; i++) {
+    var w = wins[i]; if (w.pid !== $(cat "$PIDFILE")) continue;
+    var c = workspace.cursorPos, ss = workspace.screens, g;
+    for (var j = 0; j < ss.length; j++) { g = ss[j].geometry; if (c.x >= g.x && c.x < g.x + g.width) break; }
+    if (w.minimized) { w.minimized = false; w.keepAbove = true; w.frameGeometry = {x:g.x,y:g.y,width:g.width,height:Math.floor(g.height/2)}; workspace.activeWindow = w; }
+    else { w.minimized = true; }
+    break;
+}
+EOF
+fi
+$KWIN.unloadScript dropdown-term &>/dev/null; $KWIN.loadScript $XDG_RUNTIME_DIR/dropdown-kwin.js dropdown-term &>/dev/null
+$KWIN.start &>/dev/null

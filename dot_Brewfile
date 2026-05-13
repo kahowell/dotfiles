@@ -122,7 +122,6 @@ if OS.linux?
   flatpak "org.gnome.meld"
   flatpak "org.inkscape.Inkscape"
   flatpak "org.kde.okteta"
-  flatpak "org.kde.yakuake"
   flatpak "org.mozilla.firefox"
   flatpak "org.raspberrypi.rpi-imager"
   flatpak "org.videolan.VLC"
