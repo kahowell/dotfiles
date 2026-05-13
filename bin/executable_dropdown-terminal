@@ -1,8 +1,31 @@
 #!/bin/bash
+SHORTCUT_KEY="F12"
+SHORTCUT_QT_KEYCODE=16777275
 PIDFILE="${XDG_RUNTIME_DIR}/dropdown-konsole.pid"
 KWIN="gdbus call --session --dest org.kde.KWin --object-path /Scripting --method org.kde.kwin.Scripting"
+KGLOBALACCEL="gdbus call --session --dest org.kde.kglobalaccel --object-path /kglobalaccel --method org.kde.KGlobalAccel"
+
 PID=$(cat "$PIDFILE" 2>/dev/null)
 if [ -z "$PID" ] || ! kill -0 "$PID" 2>/dev/null; then
+    DESKTOP_ID="net.local.dropdown-terminal.desktop"
+    DESKTOP_FILE="${XDG_DATA_HOME:-$HOME/.local/share}/applications/$DESKTOP_ID"
+    SCRIPT_PATH="$(readlink -f "$0")"
+    ACTION_ID="['$DESKTOP_ID', '_launch', 'dropdown-terminal', 'Launch dropdown-terminal']"
+    if [ ! -f "$DESKTOP_FILE" ] || ! grep -q "$SCRIPT_PATH" "$DESKTOP_FILE" 2>/dev/null; then
+        mkdir -p "$(dirname "$DESKTOP_FILE")"
+        cat > "$DESKTOP_FILE" << DESKTOP
+[Desktop Entry]
+Exec=$SCRIPT_PATH
+Name=dropdown-terminal
+NoDisplay=true
+StartupNotify=false
+Type=Application
+X-KDE-GlobalAccel-CommandShortcut=true
+DESKTOP
+        kwriteconfig6 --file kglobalshortcutsrc --group "services" --group "$DESKTOP_ID" --key _launch "$SHORTCUT_KEY,none,Launch dropdown-terminal"
+        $KGLOBALACCEL.doRegister "$ACTION_ID" &>/dev/null
+        $KGLOBALACCEL.setShortcut "$ACTION_ID" "[$SHORTCUT_QT_KEYCODE]" "uint32 2" &>/dev/null
+    fi
     konsole --separate --hide-menubar &
     echo $! > "$PIDFILE"
     ACTION=setup
